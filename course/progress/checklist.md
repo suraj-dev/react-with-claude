@@ -9,7 +9,7 @@ Use this checklist to track your progress through the AI Study Assistant course.
 
 ## 📊 Overall Progress
 
-- [ ] Module 1: Introduction to React & Project Setup
+- [x] Module 1: Introduction to React & Project Setup
 - [ ] Module 2: Components, Props & Composition
 - [ ] Module 3: State Management with useState
 - [ ] Module 4: Side Effects with useEffect

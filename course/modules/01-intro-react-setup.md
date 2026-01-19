@@ -177,13 +177,13 @@ Try modifying the Welcome component:
 
 Check off each item after completing:
 
-- [ ] Home page displays heading and description
-- [ ] Welcome component is created with proper TypeScript interface
-- [ ] Welcome component accepts name prop
-- [ ] Component renders with the correct greeting
-- [ ] No TypeScript errors in the terminal or editor
-- [ ] Page looks good in the browser (http://localhost:3000)
-- [ ] Tailwind CSS classes are applied correctly
+- [x] Home page displays heading and description
+- [x] Welcome component is created with proper TypeScript interface
+- [x] Welcome component accepts name prop
+- [x] Component renders with the correct greeting
+- [x] No TypeScript errors in the terminal or editor
+- [x] Page looks good in the browser (http://localhost:3000)
+- [x] Tailwind CSS classes are applied correctly
 
 ## 🐛 Common Issues & Solutions
 
