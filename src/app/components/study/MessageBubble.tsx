@@ -16,67 +16,30 @@ import { formatDateTime } from "@/lib/utils";
 
 interface MessageBubbleProps {
   message: Message;
-  // TODO: Add a 'variant' prop that determines the message styling
-  // HINT: variant should accept "user" | "assistant" | "system"
-  // This will let us style messages differently based on who sent them
+  variant: "user" | "assistant" | "system";
 }
 
-/**
- * TODO: Update the function signature to include the variant prop
- * EXAMPLE: export function MessageBubble({ message, variant }: MessageBubbleProps)
- */
-export function MessageBubble({ message }: MessageBubbleProps) {
-  // TODO: Destructure the variant prop from the props parameter above
-
-  /**
-   * TODO: Implement conditional styling based on variant
-   *
-   * REQUIREMENTS:
-   * - "user" messages should have:
-   *   - bg-primary text-primary-foreground
-   *   - ml-auto (aligned to the right)
-   *   - max-w-[80%]
-   *
-   * - "assistant" messages should have:
-   *   - bg-muted text-muted-foreground
-   *   - mr-auto (aligned to the left)
-   *   - max-w-[80%]
-   *
-   * - "system" messages should have:
-   *   - bg-accent text-accent-foreground
-   *   - mx-auto text-center
-   *   - max-w-[60%]
-   *
-   * HINT: Use the cn() utility function to combine classes conditionally
-   * EXAMPLE: cn("base-class", variant === "user" && "user-specific-class")
-   */
-
+export function MessageBubble({ message, variant }: MessageBubbleProps) {
   return (
     <div
       className={cn(
-        "rounded-lg p-4 shadow-sm",
-        // TODO: Add conditional classes based on variant here
-        // variant === "user" && "...",
-        // variant === "assistant" && "...",
-        // variant === "system" && "...",
+        "max-w-[80%] rounded-lg p-4 shadow-sm",
+        variant === "user" && "ml-auto bg-primary text-primary-foreground",
+        variant === "assistant" && "mr-auto bg-muted text-muted-foreground",
+        variant === "system" &&
+          "mx-auto max-w-[60%] bg-accent text-center text-accent-foreground"
       )}
     >
       {/* Display the sender's name */}
-      <p className="text-sm font-semibold mb-1">
-        {/* TODO: Display message.role with proper capitalization */}
-        {/* HINT: message.role.charAt(0).toUpperCase() + message.role.slice(1) */}
+      <p className="mb-1 text-sm font-semibold">
+        {message.role.charAt(0).toUpperCase() + message.role.slice(1)}
       </p>
 
       {/* Display the message content */}
-      <p className="text-base mb-2">
-        {/* TODO: Display message.content */}
-      </p>
+      <p className="mb-2 text-base">{message.content}</p>
 
       {/* Display the timestamp */}
-      <p className="text-xs opacity-70">
-        {/* TODO: Display formatted timestamp */}
-        {/* HINT: Use formatDateTime(message.timestamp) */}
-      </p>
+      <p className="text-xs opacity-70">{formatDateTime(message.timestamp)}</p>
     </div>
   );
 

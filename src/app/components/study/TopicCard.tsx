@@ -20,72 +20,38 @@ import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
 import { formatDuration } from "@/lib/utils";
 
-// TODO: Define the TopicCardProps interface
-// HINT: It should have:
-// - topic: Topic
-// - onStartLearning?: () => void (optional callback for when user clicks "Start Learning")
-
 interface TopicCardProps {
   topic: Topic;
-  // TODO: Add the onStartLearning optional prop
+  onStartLearning?: () => void;
 }
-
-/**
- * TODO: Complete the TopicCard component
- *
- * REQUIREMENTS:
- * 1. Use the Card component and its sub-components (CardHeader, CardContent, etc.)
- * 2. Display the topic title in CardTitle
- * 3. Display the topic description in CardDescription
- * 4. Show badges for difficulty and category
- * 5. Display the estimated time
- * 6. Add a "Start Learning" button that calls onStartLearning when clicked
- */
-export function TopicCard({ topic }: TopicCardProps) {
-  // TODO: Destructure onStartLearning from props
-
+export function TopicCard({ topic, onStartLearning }: TopicCardProps) {
   return (
-    <Card className="hover:shadow-lg transition-shadow">
-      {/* TODO: Add CardHeader with CardTitle and CardDescription */}
-      {/* EXAMPLE:
-        <CardHeader>
-          <CardTitle>{topic.title}</CardTitle>
-          <CardDescription>{topic.description}</CardDescription>
-        </CardHeader>
-      */}
+    <Card className="transition-shadow hover:shadow-lg">
+      <CardHeader>
+        <CardTitle>{topic.title}</CardTitle>
+        <CardDescription>{topic.description}</CardDescription>
+      </CardHeader>
 
       <CardContent>
-        {/* TODO: Display badges for difficulty and category */}
-        {/* HINT: Use flex gap-2 to space them out */}
-        <div className="flex gap-2 mb-4">
-          {/* TODO: Add a Badge for difficulty */}
-          {/* EXAMPLE: <Badge variant="secondary">{topic.difficulty}</Badge> */}
-
-          {/* TODO: Add a Badge for category */}
-          {/* EXAMPLE: <Badge variant="outline">{topic.category}</Badge> */}
+        <div className="mb-4 flex gap-2">
+          <Badge variant="secondary">{topic.difficulty}</Badge>
+          <Badge variant="outline">{topic.category}</Badge>
         </div>
 
-        {/* TODO: Display estimated time */}
         <p className="text-sm text-muted-foreground">
-          {/* HINT: Use formatDuration(topic.estimatedMinutes) */}
-          {/* EXAMPLE: Estimated time: {formatDuration(topic.estimatedMinutes)} */}
+          Estimated time: {formatDuration(topic.estimatedMinutes)}
         </p>
 
-        {/* TODO: Display number of resources */}
-        {/* HINT: topic.resources.length */}
+        <p className="text-sm text-muted-foreground">
+          {topic.resources.length} resources available
+        </p>
       </CardContent>
 
-      {/* TODO: Add CardFooter with a "Start Learning" button */}
-      {/* EXAMPLE:
-        <CardFooter>
-          <Button
-            onClick={onStartLearning}
-            className="w-full"
-          >
-            Start Learning
-          </Button>
-        </CardFooter>
-      */}
+      <CardFooter>
+        <Button onClick={onStartLearning} className="w-full">
+          Start Learning
+        </Button>
+      </CardFooter>
     </Card>
   );
 }

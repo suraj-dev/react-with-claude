@@ -29,6 +29,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.6",
     "@types/react-dom": "^19.0.2",
@@ -49,11 +50,7 @@
     "pnpm": ">=8.0.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md,css}": [
+    "*.{js,jsx,ts,tsx,json,md,css}": [
       "prettier --write"
     ]
   }
