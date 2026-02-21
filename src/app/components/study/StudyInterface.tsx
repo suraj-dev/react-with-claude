@@ -1,85 +1,39 @@
 "use client";
 
-/**
- * StudyInterface Component
- *
- * Module 3: State Management with useState
- *
- * This component brings together ChatInput and MessageList,
- * demonstrating:
- * - Managing complex state
- * - Lifting state up to parent component
- * - Component composition
- * - Creating unique IDs for list items
- */
-
-// TODO: Import useState hook
-// import { useState } from "react";
-
 import { Message } from "@/app/types/message";
 import { ChatInput } from "./ChatInput";
 import { MessageList } from "./MessageList";
+import { useState } from "react";
 
 export function StudyInterface() {
-  // TODO: Create state for messages array
-  // HINT: const [messages, setMessages] = useState<Message[]>([]);
-  // Initialize with an empty array
-
-  // TODO: Optionally, add a welcome message to start
-  // You can initialize with:
-  // const [messages, setMessages] = useState<Message[]>([
-  //   {
-  //     id: "welcome",
-  //     role: "system",
-  //     content: "Welcome! Ask me anything about React, Next.js, or LangGraph.",
-  //     timestamp: new Date(),
-  //   },
-  // ]);
-
-  /**
-   * TODO: Implement the handleSendMessage function
-   *
-   * This function should:
-   * 1. Create a new user message object with:
-   *    - Unique id (you can use Date.now().toString() or crypto.randomUUID())
-   *    - role: "user"
-   *    - content: the message text from the parameter
-   *    - timestamp: current date/time
-   * 2. Add the new message to the messages array
-   * 3. Optionally, add a simulated assistant response
-   *
-   * HINT: Use the spread operator to add to array
-   * EXAMPLE: setMessages([...messages, newMessage]);
-   * OR: setMessages((prev) => [...prev, newMessage]);
-   */
+  const [messages, setMessages] = useState<Message[]>([]);
   const handleSendMessage = (content: string) => {
-    // TODO: Create the user message object
-    // const userMessage: Message = {
-    //   id: crypto.randomUUID(), // or Date.now().toString()
-    //   role: "user",
-    //   content,
-    //   timestamp: new Date(),
-    // };
+    const userMessage: Message = {
+      id: crypto.randomUUID(),
+      role: "user",
+      content,
+      timestamp: new Date(),
+    };
 
-    // TODO: Add user message to state
-    // setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
 
-    // OPTIONAL: Simulate an assistant response after a short delay
-    // setTimeout(() => {
-    //   const assistantMessage: Message = {
-    //     id: crypto.randomUUID(),
-    //     role: "assistant",
-    //     content: "Thanks for your question! In Module 10, you'll learn how to connect this to a real AI using LangGraph.",
-    //     timestamp: new Date(),
-    //   };
-    //   setMessages((prevMessages) => [...prevMessages, assistantMessage]);
-    // }, 1000);
+    // Simulate an assistant response after a short delay
+    setTimeout(() => {
+      const assistantMessage: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content:
+          "Thanks for your question! In Module 10, you'll learn how to connect this to a real AI using LangGraph.",
+        timestamp: new Date(),
+      };
+      setMessages((prevMessages) => [...prevMessages, assistantMessage]);
+    }, 1000);
   };
 
   return (
-    <div className="flex flex-col h-[600px] border rounded-lg overflow-hidden">
+    <div className="flex h-[600px] flex-col overflow-hidden rounded-lg border">
       {/* Header */}
-      <div className="border-b px-4 py-3 bg-muted/50">
+      <div className="border-b bg-muted/50 px-4 py-3">
         <h2 className="font-semibold">Study Assistant Chat</h2>
         <p className="text-sm text-muted-foreground">
           Ask questions and get help with your learning
@@ -93,7 +47,7 @@ export function StudyInterface() {
       </div>
 
       {/* Input Area */}
-      <div className="border-t p-4 bg-background">
+      <div className="border-t bg-background p-4">
         {/* TODO: Render ChatInput component and pass handleSendMessage */}
         {/* EXAMPLE: <ChatInput onSendMessage={handleSendMessage} /> */}
       </div>

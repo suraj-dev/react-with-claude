@@ -63,19 +63,19 @@ Use this checklist to track your progress through the AI Study Assistant course.
 
 ### Exercises
 
-- [ ] 3.1: Implement ChatInput with state
-- [ ] 3.2: Complete MessageList rendering
-- [ ] 3.3: Build StudyInterface with message state
-- [ ] 3.4: Handle form submission and validation
+- [x] 3.1: Implement ChatInput with state
+- [x] 3.2: Complete MessageList rendering
+- [x] 3.3: Build StudyInterface with message state
+- [x] 3.4: Handle form submission and validation
 
 ### Skills Learned
 
-- [ ] useState hook basics
-- [ ] Managing input state (controlled components)
-- [ ] Updating arrays in state
-- [ ] Event handling (onChange, onSubmit)
-- [ ] Form validation
-- [ ] Lifting state up
+- [x] useState hook basics
+- [x] Managing input state (controlled components)
+- [x] Updating arrays in state
+- [x] Event handling (onChange, onSubmit)
+- [x] Form validation
+- [x] Lifting state up
 
 ---
 

@@ -344,16 +344,16 @@ function StudyInterface() {
 
 ## Verification Checklist
 
-- [ ] ChatInput updates state as you type
-- [ ] Pressing Enter or clicking Send submits the message
-- [ ] Input clears after successful submission
-- [ ] Empty messages cannot be sent
-- [ ] Button is disabled when input is empty
-- [ ] MessageList renders all messages with correct styling
-- [ ] Each message has a unique key (no console warnings)
-- [ ] StudyInterface maintains message history
-- [ ] New messages appear at the bottom
-- [ ] Simulated assistant responses appear after delay
+- [x] ChatInput updates state as you type
+- [x] Pressing Enter or clicking Send submits the message
+- [x] Input clears after successful submission
+- [x] Empty messages cannot be sent
+- [x] Button is disabled when input is empty
+- [x] MessageList renders all messages with correct styling
+- [x] Each message has a unique key (no console warnings)
+- [x] StudyInterface maintains message history
+- [x] New messages appear at the bottom
+- [x] Simulated assistant responses appear after delay
 
 ## Common Issues & Solutions
 
