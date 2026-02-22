@@ -2,12 +2,20 @@
 
 import { Message } from "@/app/types/message";
 import { MessageBubble } from "./MessageBubble";
+import { useEffect, useRef } from "react";
 
 interface MessageListProps {
   messages: Message[];
 }
 
 export function MessageList({ messages }: MessageListProps) {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to bottom when messages change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   if (messages.length === 0) {
     return (
       <div className="flex h-full items-center justify-center p-8 text-center">
@@ -28,6 +36,7 @@ export function MessageList({ messages }: MessageListProps) {
           variant={message.role || "system"}
         ></MessageBubble>
       ))}
+      <div ref={messagesEndRef} />
     </div>
   );
 }

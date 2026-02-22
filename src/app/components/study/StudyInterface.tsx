@@ -7,6 +7,7 @@ import { useState } from "react";
 
 export function StudyInterface() {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const handleSendMessage = (content: string) => {
     const userMessage: Message = {
       id: crypto.randomUUID(),
@@ -16,6 +17,7 @@ export function StudyInterface() {
     };
 
     setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setIsLoading(true);
 
     // Simulate an assistant response after a short delay
     setTimeout(() => {
@@ -27,7 +29,8 @@ export function StudyInterface() {
         timestamp: new Date(),
       };
       setMessages((prevMessages) => [...prevMessages, assistantMessage]);
-    }, 1000);
+      setIsLoading(false);
+    }, 1500);
   };
 
   return (
@@ -42,14 +45,17 @@ export function StudyInterface() {
 
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto">
-        {/* TODO: Render MessageList component and pass messages */}
-        {/* EXAMPLE: <MessageList messages={messages} /> */}
+        <MessageList messages={messages} />
+        {isLoading && (
+          <div className="p-4 text-center text-sm text-muted-foreground">
+            Assistant is typing...
+          </div>
+        )}
       </div>
 
       {/* Input Area */}
       <div className="border-t bg-background p-4">
-        {/* TODO: Render ChatInput component and pass handleSendMessage */}
-        {/* EXAMPLE: <ChatInput onSendMessage={handleSendMessage} /> */}
+        <ChatInput onSendMessage={handleSendMessage} disabled={isLoading} />
       </div>
     </div>
   );

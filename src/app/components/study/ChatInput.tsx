@@ -6,11 +6,13 @@ import { useState } from "react";
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
   placeholder?: string;
+  disabled?: boolean;
 }
 
 export function ChatInput({
   onSendMessage,
   placeholder = "Ask me anything...",
+  disabled = false,
 }: ChatInputProps) {
   const [inputValue, setInputValue] = useState("");
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,8 +37,9 @@ export function ChatInput({
         onChange={handleInputChange}
         className="flex-1"
         aria-label="Message input"
+        disabled={disabled}
       />
-      <Button type="submit" disabled={!inputValue.trim()}>
+      <Button type="submit" disabled={!inputValue.trim() || disabled}>
         Send
       </Button>
     </form>

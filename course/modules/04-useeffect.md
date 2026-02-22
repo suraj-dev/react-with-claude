@@ -369,14 +369,14 @@ export function DraftEditor() {
 
 ## Verification Checklist
 
-- [ ] New messages automatically scroll into view
-- [ ] Scroll behavior is smooth
-- [ ] Loading state shows while waiting for response
-- [ ] Input is disabled during loading
-- [ ] Data fetching shows loading, then data or error
-- [ ] No console warnings about state updates on unmounted components
-- [ ] Cleanup functions prevent memory leaks
-- [ ] Effects only run when dependencies change
+- [x] New messages automatically scroll into view
+- [x] Scroll behavior is smooth
+- [x] Loading state shows while waiting for response
+- [x] Input is disabled during loading
+- [x] Data fetching shows loading, then data or error
+- [x] No console warnings about state updates on unmounted components
+- [x] Cleanup functions prevent memory leaks
+- [x] Effects only run when dependencies change
 
 ## Common Issues & Solutions
 

@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * MessageBubble Component
  *

@@ -8,6 +8,7 @@
  */
 
 import { MessageBubble } from "./components/study/MessageBubble";
+import { StudyInterface } from "./components/study/StudyInterface";
 
 export default function Home() {
   // TODO: Create a welcome message for users
@@ -34,18 +35,21 @@ interface WelcomeProps {
   course?: string;
 }
 
+// Static date for example messages to avoid hydration mismatch
+const EXAMPLE_TIMESTAMP = new Date("2026-01-01T12:00:00Z");
+
 function Welcome({ name, course = "React" }: WelcomeProps) {
   return (
     <div className="rounded-lg bg-primary/10 p-6">
       <p className="text-xl">
         Hello, {name}! Ready to learn {course}?
       </p>
-      <MessageBubble
+      {/* <MessageBubble
         message={{
           id: "1",
           role: "user",
           content: "Welcome to the AI Study Assistant course!",
-          timestamp: new Date(),
+          timestamp: EXAMPLE_TIMESTAMP,
         }}
         variant="user"
       />
@@ -54,7 +58,7 @@ function Welcome({ name, course = "React" }: WelcomeProps) {
           id: "2",
           role: "assistant",
           content: "Welcome to the AI Study Assistant course!",
-          timestamp: new Date(),
+          timestamp: EXAMPLE_TIMESTAMP,
         }}
         variant="assistant"
       />
@@ -63,10 +67,11 @@ function Welcome({ name, course = "React" }: WelcomeProps) {
           id: "3",
           role: "system",
           content: "Welcome to the AI Study Assistant course!",
-          timestamp: new Date(),
+          timestamp: EXAMPLE_TIMESTAMP,
         }}
         variant="system"
-      />
+      /> */}
+      <StudyInterface />
     </div>
   );
 }

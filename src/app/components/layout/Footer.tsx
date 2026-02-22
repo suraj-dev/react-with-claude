@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Footer Component
  *
@@ -15,7 +17,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t mt-auto">
+    <footer className="mt-auto border-t">
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col items-center justify-center gap-2 text-center">
           <p className="text-sm text-muted-foreground">

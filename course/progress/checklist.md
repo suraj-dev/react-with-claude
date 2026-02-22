@@ -83,18 +83,18 @@ Use this checklist to track your progress through the AI Study Assistant course.
 
 ### Exercises
 
-- [ ] 4.1: Implement auto-scroll with useEffect
-- [ ] 4.2: Add loading states
-- [ ] 4.3: Fetch data with useEffect
-- [ ] 4.4: Implement cleanup functions
+- [x] 4.1: Implement auto-scroll with useEffect
+- [x] 4.2: Add loading states
+- [x] 4.3: Fetch data with useEffect
+- [x] 4.4: Implement cleanup functions
 
 ### Skills Learned
 
-- [ ] useEffect hook basics
-- [ ] Dependency arrays
-- [ ] Cleanup functions
-- [ ] Data fetching patterns
-- [ ] Managing side effects
+- [x] useEffect hook basics
+- [x] Dependency arrays
+- [x] Cleanup functions
+- [x] Data fetching patterns
+- [x] Managing side effects
 
 ---
 
